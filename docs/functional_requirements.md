@@ -36,14 +36,10 @@
 
 ### User
 - `id`: UUID
+- `role_id`: UUID
+- `user_data_id`: UUID
 - `login`: varchar
 - `password`: varchar
-- `role_id`: uuid
-- `user_data_id`: UUID
-
-### UserData
-- `id`: UUID
-- `user_id`: UUID
 - `name`: varchar
 - `phone_number`: varchar
 - `age`: int
@@ -57,6 +53,12 @@
 - `name`: varchar
 - `price`: decimal
 
+### Plane
+- `id`: UUID
+- `available_seats`: int
+- `model`: varchar
+- `company`: varchar
+
 ### Flight
 - `id`: UUID
 - `service_id`: UUID
@@ -67,6 +69,7 @@
 - `available_seats`: int
 - `price`: decimal
 - `is_active`: boolean
+- `plane_id`: UUID
 
 ### Booking
 - `id`: UUID
@@ -116,6 +119,7 @@
 - Просмотр оценок и отзывов
 - Создание вопросов для обсуждения
 - Просмотр каталога возможных акций на услуги
+
 
   Администратор:
 - Регистрация и авторизация пользователей
