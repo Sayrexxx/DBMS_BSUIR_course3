@@ -1,5 +1,3 @@
-> SQL Queries for the 1st lab
-```
 CREATE TABLE Role (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     name VARCHAR(50) NOT NULL UNIQUE
@@ -152,4 +150,3 @@ DELETE FROM Promotions WHERE end_date < CURRENT_DATE;
 SELECT DISTINCT age FROM MyUser
 WHERE age BETWEEN 30 AND 40
 ORDER BY age DESC;
-```
