@@ -104,3 +104,24 @@ SELECT *
 FROM Booking b
 JOIN Flight f ON b.flight_id = f.id
 WHERE f.is_active = TRUE;
+
+
+-- TASK FOR ACCEPTANCE 4th LAB
+SELECT
+    u.name AS user_name,
+    p.model AS airplane_model,
+    COUNT(b.id) AS flight_count
+FROM
+    MyUser u
+JOIN
+    Questions q ON u.id = q.MyUser_id AND q.status = TRUE
+JOIN
+    Booking b ON u.id = b.MyUser_id
+JOIN
+    Flight f ON b.flight_id = f.id
+JOIN
+    Plane p ON f.plane_id = p.id
+GROUP BY
+    u.id, u.name, p.id, p.model
+ORDER BY
+    u.name, p.model;

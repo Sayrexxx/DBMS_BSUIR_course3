@@ -118,12 +118,19 @@ INSERT INTO Flight (service_id, origin_point, destination_point, departure_datet
 ((SELECT id FROM Service WHERE name = 'Wi-Fi'), 'New York', 'London', '2024-11-25 10:00:00', '2024-11-25 18:00:00', 500.00,
  (SELECT id FROM Plane WHERE model = 'Boeing 737'));
 
+INSERT INTO Flight (service_id, origin_point, destination_point, departure_datetime, arrival_datetime, price, plane_id) VALUES
+((SELECT id FROM Service WHERE name = 'Wi-Fi'), 'London', 'New York', '2024-11-25 10:00:00', '2024-11-25 18:00:00', 600.00,
+ (SELECT id FROM Plane WHERE model = 'Airbus A320'));
+
 INSERT INTO Booking (flight_id, MyUser_id, seats_amount, price) VALUES
-((SELECT id FROM Flight WHERE origin_point = 'New York'), (SELECT id FROM MyUser WHERE login = 'passenger1'), 1, 500.00);
+((SELECT id FROM Flight WHERE origin_point = 'London'), (SELECT id FROM MyUser WHERE login = 'passenger1'), 1, 500.00);
 
 INSERT INTO Promotions (title, description, discount, end_date, service_id) VALUES
 ('Black Friday Sale', '50% off on Wi-Fi service', 50.00, '2024-11-30',
  (SELECT id FROM Service WHERE name = 'Wi-Fi'));
+
+INSERT INTO Questions (MyUser_id, question, answer, status) VALUES
+('449f21bf-103c-4d12-a4fb-7ad4bac24f11', 'Самые дорогие направления', 'Дубай', TRUE);
 
 -- Получить все активные рейсы
 SELECT * FROM Flight WHERE is_active = TRUE;
