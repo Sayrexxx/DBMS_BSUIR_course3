@@ -126,7 +126,7 @@ INSERT INTO Booking (flight_id, MyUser_id, seats_amount, price) VALUES
 ((SELECT id FROM Flight WHERE origin_point = 'London'), (SELECT id FROM MyUser WHERE login = 'passenger1'), 1, 500.00);
 
 INSERT INTO Promotions (title, description, discount, end_date, service_id) VALUES
-('Black Friday Sale', '50% off on Wi-Fi service', 50.00, '2024-11-30',
+('Black Friday Sale', '50% off on Wi-Fi service', 50.00, '2024-12-30',
  (SELECT id FROM Service WHERE name = 'Wi-Fi'));
 
 INSERT INTO Questions (MyUser_id, question, answer, status) VALUES
