@@ -111,8 +111,7 @@ INSERT INTO Plane (available_seats, model, company) VALUES
 (200, 'Airbus A320', 'Airbus');
 
 INSERT INTO Service (MyUser_id, name, price) VALUES
-((SELECT id FROM MyUser WHERE login = 'manager1'), 'Wi-Fi', 10.00),
-((SELECT id FROM MyUser WHERE login = 'manager1'), 'Lounge Access', 50.00);
+((SELECT id FROM MyUser WHERE name = 'John Doe'), 'Wi-Fi', 10.00);
 
 INSERT INTO Flight (service_id, origin_point, destination_point, departure_datetime, arrival_datetime, price, plane_id) VALUES
 ((SELECT id FROM Service WHERE name = 'Wi-Fi'), 'New York', 'London', '2024-11-25 10:00:00', '2024-11-25 18:00:00', 500.00,
@@ -129,8 +128,8 @@ INSERT INTO Promotions (title, description, discount, end_date, service_id) VALU
 ('Black Friday Sale', '50% off on Wi-Fi service', 50.00, '2024-12-30',
  (SELECT id FROM Service WHERE name = 'Wi-Fi'));
 
-INSERT INTO Questions (MyUser_id, question, answer, status) VALUES
-('449f21bf-103c-4d12-a4fb-7ad4bac24f11', 'Самые дорогие направления', 'Дубай', TRUE);
+INSERT INTO Questions (MyUser_id, question) VALUES
+((SELECT id from myuser where name = 'John Doe'), 'Самые дешевые направления');
 
 -- Получить все активные рейсы
 SELECT * FROM Flight WHERE is_active = TRUE;
